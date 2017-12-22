@@ -15,6 +15,8 @@ import pandas as pd
 import numpy as np
 import sklearn as sk
 #import matplotlib.pyplot as plt  
+from sklearn.preprocessing import StandardScaler
+from sklearn.externals import joblib
 
 
 # 提取
@@ -34,15 +36,25 @@ x=data[['longitude_variable','latitude_variable']]
 y=data['shop_id']
 z=data['mall_id']
 
+#标准化
+scale=StandardScaler()
+xx=pd.DataFrame(scale.fit_transform(x))
+
+
+
+#储存数据
 way_write='C:/Users/Administrator/Desktop/ali/data/3_tempt/'
 
-x.to_csv(way_write+'x.csv')
+xx.to_csv(way_write+'x.csv')
 y.to_csv(way_write+'y.csv')
 z.to_csv(way_write+'z.csv')
+
+joblib.dump(scale, way_write+'scale_1.model')
 
 
 
 # 第三版改动为将index也写入csv
+# 第五版在svc前加入scale
 
 
 
