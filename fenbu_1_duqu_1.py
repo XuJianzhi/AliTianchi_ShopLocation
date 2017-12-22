@@ -36,14 +36,13 @@ z=data['mall_id']
 
 way_write='C:/Users/Administrator/Desktop/ali/data/3_tempt/'
 
-x.to_csv(way_write+'x.csv',index=False)
-y.to_csv(way_write+'y.csv',index=False)
-z.to_csv(way_write+'z.csv',index=False)
+x.to_csv(way_write+'x.csv')
+y.to_csv(way_write+'y.csv')
+z.to_csv(way_write+'z.csv')
 
 
 
-
-
+# 第三版改动为将index也写入csv
 
 
 
